@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proximitynow</title>
+
+    <link rel="icon" type="image/png" href="/f/favicon.png" />
+
+    <link rel="stylesheet" href="/f/style.css" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/f/index.js"></script>
+  </head>
+  <body>
+    <main>
+      <div id="main-card">
+        <img
+          src="/f/removed.png"
+          alt="Proximitynow's Profile Picture"
+          id="profile-picture"
+        />
+        <div id="card-content">
+          <h1>Proximitynow</h1>
+          <div id="activities"></div>
+          <a href="https://discord.gg/vUm9N5aF" target="_blank">friend me</a>
+        </div>
+      </div>
+      <div class="header">
+        <h1>About Me</h1>
+        <h2>About Me</h2>
+        <hr />
+      </div>
+      <div class="header">
+        <h1>Projects</h1>
+        <h2>Projects</h2>
+        <hr />
+      </div>
+      <div class="header">
+        <h1>Contact</h1>
+        <h2>Contact</h2>
+        <hr />
+      </div>
+    </main>
+    <div id="tooltip" style="display: none">
+      <img id="aLarge" alt="large" />
+      <img id="aSmall" alt="small" />
+      <div id="aBox">
+        <span id="aName"></span>
+        <span id="aDetails"></span>
+        <span id="aState"></span>
+      </div>
+    </div>
+  </body>
+</html>

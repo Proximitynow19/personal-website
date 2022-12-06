@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,900&display=swap");
+
+html {
+  font-family: "Poppins", sans-serif;
+  background-color: #20262c;
+}
+
+main {
+  margin: 1.95vw;
+  border: 0.39vw solid #ffffff;
+  box-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.97vw;
+  padding: 3.91vw;
+}
+
+#main-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 0.2vw solid #ffffff;
+  box-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.97vw 0.97vw 0 0;
+  overflow: none;
+  height: 11.72vw;
+  position: relative;
+}
+
+#profile-picture {
+  border: 0.2vw solid #ffffff;
+  border-radius: 0.97vw 0 0 0;
+  position: absolute;
+  top: -0.2vw;
+  left: -0.2vw;
+  width: 11.72vw;
+}
+
+#card-content {
+  position: absolute;
+  top: 0;
+  left: 11.91vw;
+  padding: 0.97vw 2.93vw 0.97vw 2.93vw;
+  color: white;
+}
+
+h1 {
+  font-size: 2.93vw;
+  margin: 0;
+  text-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+}
+
+#activities {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.59vw;
+}
+
+#tooltip {
+  position: fixed;
+  z-index: 999;
+  background: #20262c;
+  border: 0.08vw solid #ffffff;
+  border-radius: 0.39vw;
+  box-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+}
+
+#aLarge {
+  position: absolute;
+  top: -0.08vw;
+  left: -0.08vw;
+  width: 3.91vw;
+  height: 3.91vw;
+  background-color: #20262c;
+  border-radius: 0.39vw 0 0 0.39vw;
+  border: 0.08vw solid #ffffff;
+}
+
+#aSmall {
+  position: absolute;
+  width: 1.17vw;
+  height: 1.17vw;
+  border-radius: 50%;
+  left: 2.93vw;
+  top: 2.93vw;
+  background-color: #20262c;
+  border: 0.08vw solid #ffffff;
+  box-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+}
+
+#aBox {
+  color: white;
+  position: relative;
+  padding-left: 4.88vw;
+  padding-right: 0.98vw;
+  padding-top: 0.59vw;
+  padding-bottom: 0.59vw;
+}
+
+.no-image {
+  padding-left: 0.98vw !important;
+}
+
+#aBox > * {
+  display: block;
+  font-size: 0.59vw;
+}
+
+.header {
+  position: relative;
+  color: white;
+  margin: 1.95vw 0 1.95vw 0;
+}
+
+.header > h1 {
+  font-weight: 900;
+  font-style: italic;
+  opacity: 0.2;
+  font-size: 6.83vw;
+  margin: 0;
+  text-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+}
+
+.header > h2 {
+  font-weight: 700;
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 3.32vw;
+  margin: 0;
+  margin-bottom: 0.59vw;
+  text-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+}
+
+.activity {
+  color: white;
+  border-bottom: 0.04vw dotted white;
+  text-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+  cursor: help;
+}
