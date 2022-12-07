@@ -10,13 +10,19 @@
 
     <link rel="stylesheet" href="/f/style.css" />
 
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css"
+    />
+
     <script
       src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
       crossorigin="anonymous"
     ></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/f/index.js"></script>
+    <script defer src="/f/index.js"></script>
   </head>
   <body>
     <main>
@@ -28,8 +34,15 @@
         />
         <div id="card-content">
           <h1>Proximitynow</h1>
+          <div id="socials">
+            <a href="https://github.com/Proximitynow19" target="_blank"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="/friend-me" target="_blank"
+              ><i class="fa-brands fa-discord"></i
+            ></a>
+          </div>
           <div id="activities"></div>
-          <a href="https://discord.gg/vUm9N5aF" target="_blank">friend me</a>
         </div>
       </div>
       <div class="header">
@@ -42,6 +55,7 @@
         <h2>Projects</h2>
         <hr />
       </div>
+      <div id="project-container"></div>
       <div class="header">
         <h1>Contact</h1>
         <h2>Contact</h2>

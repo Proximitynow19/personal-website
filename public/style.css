@@ -88,8 +88,8 @@ h1 {
   position: relative;
   padding-left: 4.88vw;
   padding-right: 0.98vw;
-  padding-top: 0.59vw;
-  padding-bottom: 0.59vw;
+  padding-top: 0.6vw;
+  padding-bottom: 0.6vw;
 }
 
 .no-image {
@@ -133,4 +133,46 @@ h1 {
   border-bottom: 0.04vw dotted white;
   text-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
   cursor: help;
+}
+
+#socials {
+  margin-bottom: 0.4vw;
+}
+
+#socials > a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  font-size: 1vw;
+  margin-left: 0.2vw;
+}
+
+#socials > a:hover {
+  color: white;
+  text-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+}
+
+#project-container {
+  display: grid;
+  gap: 0.59vw;
+  grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr));
+  margin-left: 0.59vw;
+}
+
+.project {
+  color: white;
+  text-decoration: none;
+  padding: 1.42vw;
+  border: 0.2vw solid #ffffff;
+  border-radius: 0.97vw;
+  display: inline-block;
+  cursor: pointer;
+  background-color: #38414a;
+  box-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+  width: calc(100% - 4vw);
+  height: calc(100% - 4vw);
+}
+
+.project > span,
+.project > p {
+  font-size: 0.59vw;
 }

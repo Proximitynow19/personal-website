@@ -1,7 +1,40 @@
 var socket = io();
 
+moment.updateLocale("en", {
+  relativeTime: {
+    future: "in %s",
+    past: "%s ago",
+    s: "a few seconds",
+    ss: "%d seconds",
+    m: "a minute",
+    mm: "%d minutes",
+    h: "an hour",
+    hh: "%d hours",
+    d: "a day",
+    dd: "%d days",
+    w: "a week",
+    ww: "%d weeks",
+    M: "a month",
+    MM: "%d months",
+    y: "a year",
+    yy: "%d years",
+  },
+});
+
 socket.on("app.initiate", (data) => {
   parseActivity(data.presence);
+
+  data.projects.forEach((project) => {
+    $("#project-container").html(
+      `${$("#project-container").html()} <a href="${
+        project.url
+      }" target="_blank"><div class="project"><h1>${project.name}</h1><p>${
+        project.description || "​"
+      }</p><span>Last update ${moment(
+        project.pushed_at
+      ).fromNow()}.</span></div></a>`
+    );
+  });
 });
 
 socket.on("presence.update", (data) => {

@@ -3,6 +3,8 @@ require("dotenv").config();
 const { guildId, userId } = require("./config.json");
 const { Client, GatewayIntentBits } = require("discord.js");
 const client = new Client({ intents: [GatewayIntentBits.GuildPresences] });
+const { Octokit } = require("octokit");
+const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 let presence = { status: "offline", activities: [] };
 
@@ -70,10 +72,37 @@ app.get("/", (_, res) => {
   res.sendFile(join(__dirname, "index.html"));
 });
 
+// let friendUses = 0;
+// let friendCode;
+
+// app.get('/friend-me', (_, res) => {
+
+//   if (!friendCode || friendUses >= 5) {
+//     // generate friend link https://canary.discord.com/api/v9/users/@me/invites
+//   }
+
+// })
+
+let repos = [];
+
 client.once("ready", async () => {
   const guild = await client.guilds.fetch(guildId);
 
   await guild.members.fetch(userId);
+
+  const repo_data = await octokit.request(
+    "GET /user/repos?visibility=public&sort=pushed"
+  );
+
+  if (repo_data.status == 200)
+    for (let i = 0; i < Math.min(10, repo_data.data.length); i++) {
+      repos.push({
+        name: repo_data.data[i].name,
+        url: repo_data.data[i].html_url,
+        description: repo_data.data[i].description,
+        pushed_at: repo_data.data[i].pushed_at,
+      });
+    }
 
   server.listen(process.env.PORT || 8000, () => {
     console.log("READY");
@@ -81,7 +110,7 @@ client.once("ready", async () => {
 });
 
 io.on("connection", (socket) => {
-  socket.emit("app.initiate", { projects: [], presence });
+  socket.emit("app.initiate", { projects: repos, presence });
 });
 
 client.login(process.env.DISCORD_TOKEN);
