@@ -5,6 +5,7 @@ const { Client, GatewayIntentBits } = require("discord.js");
 const client = new Client({ intents: [GatewayIntentBits.GuildPresences] });
 const { Octokit } = require("octokit");
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+const fetch = require("node-fetch");
 
 let presence = { status: "offline", activities: [] };
 
@@ -79,16 +80,34 @@ app.get("/", (_, res) => {
   res.sendFile(join(__dirname, "index.html"));
 });
 
-// let friendUses = 0;
-// let friendCode;
+let friendUses = 0;
+let friendCode;
+let expires = Date.now();
 
-// app.get('/friend-me', (_, res) => {
+app.get("/friend-me", async (_, res) => {
+  if (!friendCode || friendUses <= 0 || Date.now() >= expires) {
+    const data = await (
+      await fetch(`https://canary.discord.com/api/v9/users/@me/invites`, {
+        method: "POST",
+        headers: {
+          authorization: process.env.DISCORD,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({}),
+      })
+    ).json();
 
-//   if (!friendCode || friendUses >= 5) {
-//     // generate friend link https://canary.discord.com/api/v9/users/@me/invites
-//   }
+    if (!data.errors) {
+      friendUses = data.max_uses;
+      expires = Date.now() + data.max_age * 1000;
+      friendCode = data.code;
+    }
+  }
 
-// })
+  friendUses--;
+
+  res.redirect(`https://discord.gg/${friendCode}`);
+});
 
 let repos = [];
 
