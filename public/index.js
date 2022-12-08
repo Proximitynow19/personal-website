@@ -98,7 +98,8 @@ async function parseActivity(a) {
     );
   }
 
-  $("#activities").html(`${$("#activities").html()}.`);
+  if (activities.length > 0 || !status)
+    $("#activities").html(`${$("#activities").html()}.`);
 
   $(".activity").hover(
     function () {
