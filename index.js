@@ -66,6 +66,13 @@ client.on("presenceUpdate", (_, n) => {
   }
 });
 
+app.set("etag", false);
+
+app.use((req, res, next) => {
+  res.set("Cache-Control", "no-store");
+  next();
+});
+
 app.use("/f", express.static("public"));
 
 app.get("/", (_, res) => {
