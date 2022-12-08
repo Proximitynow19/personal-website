@@ -129,9 +129,9 @@ async function parseActivity(a) {
 
       $("#aName").text(`${types[data.type]}${data.name}`.toUpperCase());
 
-      $("#aDetails").text(data.details || "");
+      $("#aDetails").text(data.details || "​");
 
-      $("#aState").text(data.state || "");
+      $("#aState").text(data.state || "​");
     },
     () => {
       $("#tooltip").css("display", "none");

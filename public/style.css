@@ -52,7 +52,7 @@ h1 {
 }
 
 #tooltip {
-  position: fixed;
+  position: absolute;
   z-index: 999;
   background: #20262c;
   border: 0.08vw solid #ffffff;
@@ -175,4 +175,27 @@ h1 {
 .project > span,
 .project > p {
   font-size: 0.59vw;
+}
+
+#about-me-container {
+  position: relative;
+}
+
+#osuStats {
+  width: 21.48vw;
+  box-shadow: 0 0.15vw 0.15vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.39vw;
+}
+
+#about-me-container > div {
+  position: absolute;
+  top: 0;
+  left: 23vw;
+  color: white;
+  font-size: 1.5vw;
+}
+
+#techs > * {
+  color: rgba(255, 255, 255, 0.8);
+  margin-right: 0.6vw;
 }

@@ -90,11 +90,25 @@ client.once("ready", async () => {
 
   await guild.members.fetch(userId);
 
+  await fetchGithub();
+
+  setInterval(async () => {
+    await fetchGithub();
+  }, 60000);
+
+  server.listen(process.env.PORT || 8000, () => {
+    console.log("READY");
+  });
+});
+
+async function fetchGithub() {
   const repo_data = await octokit.request(
     "GET /user/repos?visibility=public&sort=pushed"
   );
 
-  if (repo_data.status == 200)
+  if (repo_data.status == 200) {
+    repos = [];
+
     for (let i = 0; i < Math.min(10, repo_data.data.length); i++) {
       repos.push({
         name: repo_data.data[i].name,
@@ -103,11 +117,8 @@ client.once("ready", async () => {
         pushed_at: repo_data.data[i].pushed_at,
       });
     }
-
-  server.listen(process.env.PORT || 8000, () => {
-    console.log("READY");
-  });
-});
+  }
+}
 
 io.on("connection", (socket) => {
   socket.emit("app.initiate", { projects: repos, presence });
